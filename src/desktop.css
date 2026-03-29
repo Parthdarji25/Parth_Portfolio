@@ -1,0 +1,67 @@
+@media (min-width: 769px) {
+  .section {
+    padding: 100px 20px;
+  }
+
+  .section-panel {
+    padding: 32px;
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 420px);
+    gap: 36px;
+  }
+
+  .hero-portrait-wrap {
+    min-height: 460px;
+  }
+
+  .hero-portrait-card {
+    width: min(100%, 380px);
+    transform: rotateY(-12deg) rotateX(6deg);
+  }
+
+  .navbar-shell {
+    flex-direction: row;
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.35fr);
+    align-items: stretch;
+  }
+
+  .about-detail {
+    min-height: 100%;
+  }
+
+  .skills-grid {
+    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.3fr);
+    align-items: stretch;
+  }
+
+  .skills-detail {
+    min-height: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.3fr);
+    align-items: stretch;
+  }
+
+  .projects-detail {
+    min-height: 100%;
+  }
+
+  .timeline-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
+    align-items: start;
+  }
+
+  .education-shell {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side-rail {
+    display: flex;
+  }
+}
