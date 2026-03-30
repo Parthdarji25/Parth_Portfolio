@@ -4,19 +4,23 @@ import { contactContent } from "../content/contact";
 import { personalInfo } from "../content/personal";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
+  const [activeLink, setActiveLink] = useState("LinkedIn");
+  const [feedback, setFeedback] = useState("");
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleContactClick = async (link) => {
+    setActiveLink(link.label);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent! 🚀");
+    if (link.copyValue && navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(link.copyValue);
+        setFeedback(`${link.label} copied. Use it directly or open your app.`);
+      } catch {
+        setFeedback(`${link.label} ready to use.`);
+      }
+      return;
+    }
+
+    setFeedback(link.message);
   };
 
   return (
@@ -30,7 +34,7 @@ export default function Contact() {
         <p className="section-subtitle">{contactContent.sectionIntro}</p>
 
         <div
-          className="glass section-panel"
+          className="glass section-panel contact-panel"
           style={{
             maxWidth: "800px",
             margin: "auto",
@@ -38,71 +42,43 @@ export default function Contact() {
             background: "linear-gradient(135deg, rgba(245,241,236,0.72), rgba(228,220,214,0.56))"
           }}
         >
-          {/* CONTACT FORM */}
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "15px"
-            }}
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="input"
-            />
+          <div className="contact-grid">
+            <div className="contact-intro">
+              <span className="contact-kicker">Direct Contact</span>
+              <h3>Pick the fastest way to reach me.</h3>
+              <p>
+                LinkedIn for professional outreach, email for detailed conversations,
+                and phone for immediate coordination.
+              </p>
+              <div className="contact-focus-card">
+                <span className="contact-focus-label">Active channel</span>
+                <strong>{activeLink}</strong>
+                <p>{feedback || "Click any card to open it. Email and phone also copy on click."}</p>
+              </div>
+            </div>
 
-            <input
-              type="email"
-              name="email"
-              placeholder={personalInfo.email}
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="input"
-            />
+            <div className="contact-methods">
+              {contactContent.socialLinks.map((link, index) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={activeLink === link.label ? "contact-method is-active" : "contact-method"}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  onClick={() => handleContactClick(link)}
+                  style={{ animationDelay: `${index * 120}ms` }}
+                >
+                  <span className="contact-method-topline">{link.label}</span>
+                  <span className="contact-method-value">{link.value}</span>
+                  <span className="contact-method-hint">{link.hint}</span>
+                </a>
+              ))}
+            </div>
+          </div>
 
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="4"
-              value={form.message}
-              onChange={handleChange}
-              required
-              className="input"
-            />
-
-            <button className="btn btn-primary">
-              Send Message 🚀
-            </button>
-          </form>
-
-          {/* SOCIAL LINKS */}
-          <div
-            style={{
-              marginTop: "30px",
-              display: "flex",
-              justifyContent: "center",
-              gap: "20px",
-              flexWrap: "wrap"
-            }}
-          >
-            {contactContent.socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="social"
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="contact-quick-note">
+            <span className="contact-quick-note-dot" />
+            {personalInfo.location}
           </div>
         </div>
       </SectionReveal>
