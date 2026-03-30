@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Parth Darji",
   shortRole: "Software Engineer",
   fullRole: "Software Engineer | Full Stack, Generative AI.",
-  heroBadge: "3+ years in full-stack development and Generative AI",
+  heroBadge: "3+ years of experience in full-stack development, with hands-on experience in Generative AI.”",
   heroSummary:
     "Software Engineer with 3+ years of experience in full-stack development and Generative AI. Skilled in building scalable web applications using modern frontend frameworks and backend technologies, along with developing AI-powered solutions using LLMs, RAG pipelines, and API integrations.",
   location: "Mumbai, India",
