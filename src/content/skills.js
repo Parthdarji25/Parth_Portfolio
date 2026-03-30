@@ -36,7 +36,18 @@ export const skillsContent = {
       kicker: "Practical AI stack",
       summary:
         "Developing AI features with retrieval, prompting, and agent-style application logic.",
-      tools: ["LLMs", "RAG", "Prompt Engineering", "AI Agents"]
+      tools: [
+        "Generative AI",
+        "Large Language Models (LLMs)",
+        "Retrieval-Augmented Generation (RAG)",
+        "Prompt Engineering",
+        "AI Agents",
+        "LangChain",
+        "Vector Databases",
+        "Embeddings",
+        "Semantic Search",
+        "OpenAI API"
+      ]
     },
     {
       id: "ops",
@@ -56,7 +67,6 @@ export const skillsContent = {
         "GitHub",
         "Postman",
         "Agile/Scrum",
-        "System Design"
       ]
     }
   ]

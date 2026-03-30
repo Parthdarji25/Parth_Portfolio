@@ -50,9 +50,6 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-              <a href="#contact" className="pill-link projects-cta">
-                Request Demo
-              </a>
             </div>
           </div>
         </div>
