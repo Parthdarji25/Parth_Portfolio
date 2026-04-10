@@ -5,27 +5,25 @@ export const contactContent = {
     "For software engineering, full-stack product work, or Generative AI collaboration, reach out directly.",
   socialLinks: [
     {
-      label: "LinkedIn",
-      value: "/in/parthdarji05",
+      label: "Let's Connect on LinkedIn",
+      value: "@parthdarji05",
       href: personalInfo.linkedin,
-      hint: "Open profile",
-      message: "LinkedIn opened in a new tab."
+      hint: "Explore my experience & network",
+      message: "Redirecting to LinkedIn...",
     },
     {
-      label: "Email",
-      value: personalInfo.email,
+      label: "Get In Touch Using Email ID",
       href: `mailto:${personalInfo.email}`,
-      hint: "Copy + open mail app",
+      hint: "Start a conversation",
       copyValue: personalInfo.email,
-      message: "Email copied and mail app ready."
+      message: "Email copied. Ready when you are.",
     },
     {
-      label: "Phone",
-      value: personalInfo.phone,
+      label: "Phone Number",
       href: `tel:${personalInfo.phone.replace(/\s+/g, "")}`,
-      hint: "Copy + call directly",
+      hint: "Available for quick discussions",
       copyValue: personalInfo.phone,
-      message: "Phone number copied and dialer ready."
-    }
-  ]
+      message: "Phone number copied and dialer ready.",
+    },
+  ],
 };
